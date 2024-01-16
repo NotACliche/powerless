@@ -6,5 +6,5 @@ Date: 15.01.2024
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 15.01.2024
-  Info:
-    - Corrected initial release date
+  Changes:
+    - Fixed crash where fusion reactor equipment had a power output of 0
