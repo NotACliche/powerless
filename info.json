@@ -1,0 +1,9 @@
+{
+  "name": "powerless",
+  "version": "0.1.0",
+  "title": "Powerless",
+  "description": "A mod that makes everything (and I mean EVERYTHING) burner. Does not remove any items.",
+  "author": "protocol_1903",
+  "factorio_version": "1.1",
+  "dependencies": ["base"]
+}
