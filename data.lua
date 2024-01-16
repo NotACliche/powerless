@@ -1,6 +1,7 @@
 for t, types in pairs(data.raw) do
-  if t ~= "generator" and not string.find(t, "combinator") then
+  if t ~= "generator" then
     for p, prototype in pairs(types) do
+      log(string.format("p: %s\tprototype.type: %s\t", p, t))
       if prototype.energy_source and prototype.energy_source.type == "electric" and (prototype.energy_source.usage_priority and (prototype.energy_source.usage_priority == "primary-input" or prototype.energy_source.usage_priority == "secondary-input")) then
         -- edge case personal equipment
         if p == "personal-roboport-equipment" then
@@ -19,6 +20,7 @@ for t, types in pairs(data.raw) do
           prototype.power = "3.5MW"
           prototype.energy_source.input_flow_limit = "0W"
         end
+
         -- normal entities
         if not string.find(t, "equipment") and p ~= "roboport" and p ~= "beacon" and p ~= "laser-turret" and p ~= "arithmetic-combinator" and p ~= "decider-combinator" and p ~= "constant-combinator" and p ~= "programmable-speaker" and p ~= "power-switch" then
           prototype.energy_source = {
@@ -80,6 +82,11 @@ for t, types in pairs(data.raw) do
               end
             end
           end
+        end
+      else
+        -- hotfix turn off extra generators
+        if t == "generator-equipment" then
+          prototype.power = "0W"
         end
       end
     end
