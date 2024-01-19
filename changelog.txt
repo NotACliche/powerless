@@ -1,7 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 16.01.2024
+  Bugfixes:
+    - Fixed crash where fusion reactor equipment had a power output of 0W
+  Changes:
+    - Roboports now have an internal buffer recharge rate 0.875 times the maximum robot charge speed.
+      This means that, under continuous use, roboports will run out of power.
+    - Disabled solar panels in equipment grids
+---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 15.01.2024
-  Changes:
+  Bugfixes:
     - Fixed crash where fusion reactor equipment had a power output of 0W
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
