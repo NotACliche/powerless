@@ -3,6 +3,18 @@ equipment={}
 for t, types in pairs(data.raw) do
   if t ~= "generator" then
     for p, prototype in pairs(types) do
+      
+      -- fix for combinator entities
+      if string.find(t, "combinator") then prototype.energy_source = {type = "void"} end
+
+      -- fix for lamp entities
+      if t=="lamp" then prototype.energy_source = {type = "void"} end
+
+      -- fix for power switch entities
+      if t=="power-switch" then prototype.energy_source = {type = "void"} end
+
+      -- fix for speaker entities
+      if t=="programmable-speaker" then prototype.energy_source = {type = "void"} end
 
       -- gather generator equipment for decomissioning
       if prototype.type=="generator-equipment" then
@@ -137,6 +149,3 @@ if settings.startup["inserter-leech"].value then
     prototype.allow_burner_leech = true
   end
 end
-
--- data.raw["generator-equipment"]["fusion-reactor-equipment"].take_result=nil
--- data.raw["item"]["fusion-reactor-equipment"].placed_as_equipment_result=nil
