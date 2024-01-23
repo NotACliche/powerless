@@ -48,7 +48,7 @@ for t, types in pairs(data.raw) do
         if not string.find(t, "equipment") and p ~= "roboport" and p ~= "beacon" and p ~= "laser-turret" and p ~= "arithmetic-combinator" and p ~= "decider-combinator" and p ~= "constant-combinator" and p ~= "programmable-speaker" and p ~= "power-switch" then
 
           -- make everything burner :p
-          prototype.burner = {
+          prototype.energy_source = {
             type = "burner",
             fuel_inventory_size = 1
           }
