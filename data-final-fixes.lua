@@ -18,11 +18,12 @@ for t, types in pairs(data.raw) do
 
       -- gather generator equipment for decomissioning
       if prototype.type=="generator-equipment" then
-        log(string.format("generator: %s",p))
+        -- log(string.format("generator: %s",p))
         table.insert(equipment, prototype)
+      
       -- gather solar panels for decomissioning
       elseif prototype.type=="solar-panel-equipment" then
-        log(string.format("solar panel: %s",p))
+        -- log(string.format("solar panel: %s",p))
         table.insert(equipment, prototype)
       end
 
@@ -45,6 +46,12 @@ for t, types in pairs(data.raw) do
       if prototype.energy_source and not string.find(p,"infinity") and prototype.energy_source.type == "electric" and (prototype.energy_source.usage_priority and (prototype.energy_source.usage_priority == "primary-input" or prototype.energy_source.usage_priority == "secondary-input")) then
         -- long list of things so stuff doesn't break
         if not string.find(t, "equipment") and p ~= "roboport" and p ~= "beacon" and p ~= "laser-turret" and p ~= "arithmetic-combinator" and p ~= "decider-combinator" and p ~= "constant-combinator" and p ~= "programmable-speaker" and p ~= "power-switch" then
+
+          -- make everything burner :p
+          prototype.burner = {
+            type = "burner",
+            fuel_inventory_size = 1
+          }
 
           -- inserter manupulation
           if t == "inserter" then
@@ -104,37 +111,37 @@ for t, types in pairs(data.raw) do
       else
         -- disable extra generators
         if t == "generator-equipment" then
-          log(string.format("checked: %s",p))
+          -- log(string.format("checked: %s",p))
           for e, eq in pairs(equipment) do
-            log(string.format("against: %s",eq.name))
-            log(string.format("checking %s against %s",prototype.placed_as_equipment_result, eq.name))
-            log(string.format("checking %s against %s",prototype.name, eq.take_result))
+            -- log(string.format("against: %s",eq.name))
+            -- log(string.format("checking %s against %s",prototype.placed_as_equipment_result, eq.name))
+            -- log(string.format("checking %s against %s",prototype.name, eq.take_result))
             if eq.name==p then
-              log(string.format("removed: %s",p))
+              -- log(string.format("removed: %s",p))
               -- prototype.placed_as_equipment_result=nil
               data.raw["item"][p].placed_as_equipment_result=nil
               -- eq.take_result=nil
               data.raw["generator-equipment"][eq.name].take_result=nil
-              log(string.format("check: prototype %s?",prototype.placed_as_equipment_result))
-              log(string.format("check: generator %s?",eq.take_result))
+              -- log(string.format("check: prototype %s?",prototype.placed_as_equipment_result))
+              -- log(string.format("check: generator %s?",eq.take_result))
             end
           end
         end
         -- disable extra solar panels
         if t == "solar-panel-equipment" then
-          log(string.format("checked: %s",p))
+          -- log(string.format("checked: %s",p))
           for e, eq in pairs(equipment) do
-            log(string.format("against: %s",eq.name))
-            log(string.format("checking %s against %s",prototype.placed_as_equipment_result, eq.name))
-            log(string.format("checking %s against %s",prototype.name, eq.take_result))
+            -- log(string.format("against: %s",eq.name))
+            -- log(string.format("checking %s against %s",prototype.placed_as_equipment_result, eq.name))
+            -- log(string.format("checking %s against %s",prototype.name, eq.take_result))
             if eq.name==p then
-              log(string.format("removed: %s",p))
+              -- log(string.format("removed: %s",p))
               -- prototype.placed_as_equipment_result=nil
               data.raw["item"][p].placed_as_equipment_result=nil
               -- eq.take_result=nil
               data.raw["solar-panel-equipment"][eq.name].take_result=nil
-              log(string.format("check: prototype %s?",prototype.placed_as_equipment_result))
-              log(string.format("check: solar panel %s?",eq.take_result))
+              -- log(string.format("check: prototype %s?",prototype.placed_as_equipment_result))
+              -- log(string.format("check: solar panel %s?",eq.take_result))
             end
           end
         end
