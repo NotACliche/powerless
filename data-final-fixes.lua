@@ -26,7 +26,7 @@ for t, types in pairs(data.raw) do
         -- log(string.format("solar panel: %s",p))
         table.insert(equipment, prototype)
       end
-      -- test
+      -- test again
 
       -- personal roboport fix
       if t == "roboport-equipment" then
