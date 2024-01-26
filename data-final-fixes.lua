@@ -1,4 +1,4 @@
-equipment={}
+local equipment={}
 
 for t, types in pairs(data.raw) do
   if t ~= "generator" then
