@@ -15,21 +15,5 @@ data:extend({
     default_value = 1,
     minimum_value = 0,
     maximum_value = 100,
-  },
-  {
-    type = "bool-setting",
-    name = "inserter-energy-rebalance",
-    localised_name = "Inserter Energy Cost Rebalance",
-    localised_description = "Rebalance energy costs to better reflect energy usage with burners. WARNING: Vanilla inserters are EXTREMELY unbalanced if no values are changed. Enable at your own risk.",
-    setting_type = "startup",
-    default_value = true,
-  },
-  {
-    type = "bool-setting",
-    name = "other-energy-rebalance",
-    localised_name = "Other Energy Cost Rebalance",
-    localised_description = "Rebalance energy costs to better reflect energy usage with burners. WARNING: Vanilla Factorio is heavily unbalanced if no values are changed. Enable at your own risk.",
-    setting_type = "startup",
-    default_value = true,
-  },
+  }
 })

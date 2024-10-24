@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2024-10-24
+  Bugfixes:
+    - Fixed burner inserter not upgrading to inserter through generic upgrade planner
+  Changes:
+    - Updated for 2.0
+    - Removed unused settings
+    - Rebalanced power draw
+    - Removed module changes
+    - Re-added grid equipment
+---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 23.01.2024
   Bugfixes:
